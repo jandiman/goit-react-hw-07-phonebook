@@ -6,6 +6,8 @@ import { selectFilter } from '../../redux/filter/filterSelector';
 export const Filter = () => {
   const dispatch = useDispatch();
   const filter = useSelector(selectFilter);
+
+  //filter name based on the the search keyword
   const handleFilterChange = e => {
     dispatch(setFilter(e.target.value));
   };

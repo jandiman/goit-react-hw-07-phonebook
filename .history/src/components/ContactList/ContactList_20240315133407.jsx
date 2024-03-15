@@ -20,12 +20,15 @@ export const ContactList = () => {
 
   return (
     <ul>
+      {/* if loading and not error, show Loader */}
       {isLoading && !error && <Loader />}
 
+      {/* if not loading, not error and filtered contacts is empty, show warning */}
       {!isLoading && !error && filteredContacts.length === 0 && (
         <p>The Phonebook is empty. Please add a contact</p>
       )}
 
+      {/* if not loading, not error and have atleast 1 filtered contact, show ContactListItem */}
       {!isLoading &&
         !error &&
         filteredContacts.length > 0 &&
