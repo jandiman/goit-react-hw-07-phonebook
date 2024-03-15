@@ -8,7 +8,9 @@ import './index.css';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <PersistGate persistor={persistor} loading={null}>
+        <App />
+      </PersistGate>
     </Provider>
   </React.StrictMode>
 );

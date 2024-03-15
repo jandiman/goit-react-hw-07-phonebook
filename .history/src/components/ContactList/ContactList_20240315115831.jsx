@@ -8,6 +8,7 @@ import {
 import { fetchContacts } from '../../redux/contacts/contactsOperation';
 import { Loader } from '../Loader/Loader';
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 export const ContactList = () => {
   const filteredContacts = useSelector(selectFilteredContacts);
@@ -23,18 +24,13 @@ export const ContactList = () => {
   return (
     <ul>
       {isLoading && !error && <Loader />}
-      {!isLoading && !error && filteredContacts.length === 0 && (
-        <p>The Phonebook is empty. Please add a contact</p>
-      )}
-      {!isLoading &&
-        !error &&
-        filteredContacts > 0 &&
-        filteredContacts.map(filteredContact => (
-          <ContactListItem
-            key={filteredContact.id}
-            filteredContact={filteredContact}
-          />
-        ))}
+
+      {filteredContacts.map(filteredContact => (
+        <ContactListItem
+          key={filteredContact.id}
+          filteredContact={filteredContact}
+        />
+      ))}
     </ul>
   );
 };

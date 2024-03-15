@@ -8,6 +8,7 @@ import {
 import { fetchContacts } from '../../redux/contacts/contactsOperation';
 import { Loader } from '../Loader/Loader';
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 export const ContactList = () => {
   const filteredContacts = useSelector(selectFilteredContacts);
